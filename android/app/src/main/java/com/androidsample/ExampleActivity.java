@@ -24,12 +24,19 @@ public class ExampleActivity extends ReactActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_example);
 
+        Intent intent = getIntent();
+        String currency = intent.getStringExtra("currency");
+
+        Toast.makeText(this, "currency onCreate" + currency, Toast.LENGTH_LONG).show();
+
         posClient = PosSdk.createClient(this, APPLICATION_ID);
-        startTransaction();
+        startTransaction(currency);
     }
 
 
-    public void startTransaction() {
+    public void startTransaction(String currency) {
+
+        Log.d("ExampleActivity", "currency startTransaction" + currency);
         ChargeRequest request = new ChargeRequest.Builder(
                 100,
                 CurrencyCode.USD)

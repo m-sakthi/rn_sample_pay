@@ -20,16 +20,12 @@ class ActivityStarterModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    void navigateToExample() {
+    void navigateToExample(String currency) {
 //        Toast.makeText(getReactApplicationContext(), "Some custom", Toast.LENGTH_SHORT).show();
-
-//        ReactApplicationContext context = getReactApplicationContext();
-//        Intent intent = new Intent(context, ExampleActivity.class);
-//        context.startActivity(intent);
-
         Activity activity = getCurrentActivity();
         if (activity != null) {
             Intent intent = new Intent(activity, ExampleActivity.class);
+            intent.putExtra("currency", currency);
             activity.startActivity(intent);
         }
     }

@@ -57,7 +57,7 @@ const App = () => {
 
           
           <View style={styles.body}>
-          <TouchableOpacity testID="app-sample-btn" onPress={() => {NativeModules.ActivityStarter.navigateToExample()} }>
+          <TouchableOpacity testID="app-sample-btn" onPress={() => {NativeModules.ActivityStarter.navigateToExample("100")} }>
                 <View><Text>Sample button</Text></View>
           </TouchableOpacity>
           
